@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Chatbot</title>
+</head>
+<body>
+    <h1>AI Chatbot by Kementerian Luar Negeri RI</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <label>Text Prompt:</label><br>
+        <textarea name="prompt" rows="4" cols="50"></textarea><br><br>
+
+        <label>Upload File (.jpg or .wav):</label><br>
+        <input type="file" name="file"><br><br>
+
+        <label>Or enter a public URL:</label><br>
+        <input type="text" name="url" size="50"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    {% if response %}
+        <h2>Response:</h2>
+        <pre>{{ response }}</pre>
+    {% endif %}
+</body>
+</html>
