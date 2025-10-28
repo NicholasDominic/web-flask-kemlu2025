@@ -108,67 +108,67 @@ def run(user_prompt : str, model_name : str, image_path : str = None, *args, **k
 
     return result["choices"][0]["message"]["content"]
 
-# @app.route('/chatbot', methods=['GET', 'POST'])
-# def chatbot():
-#     response = None
-#     if request.method == 'POST':
-#         user_prompt = request.form.get('prompt')
-#         uploaded_file = request.files.get('file')
-#         url = request.form.get('url')
+@app.route('/chatbot', methods=['GET', 'POST'])
+def chatbot():
+    response = None
+    if request.method == 'POST':
+        user_prompt = request.form.get('prompt')
+        uploaded_file = request.files.get('file')
+        url = request.form.get('url')
 
-#         # Text
-#         if user_prompt and not uploaded_file and not url:
-#             llm_model = # ... NEED TO BE COMPLETED
-#             response = # ... NEED TO BE COMPLETED
+        # Text
+        if user_prompt and not uploaded_file and not url:
+            llm_model = # ... NEED TO BE COMPLETED
+            response = # ... NEED TO BE COMPLETED
 
-#         # Image (.jpg)
-#         elif uploaded_file and uploaded_file.filename.lower().endswith('.jpg'):
-#             vlm_model = # ... NEED TO BE COMPLETED
-#             image_path = os.path.join("temp", uploaded_file.filename)
-#             uploaded_file.save(image_path)
-#             response = # ... NEED TO BE COMPLETED
+        # Image (.jpg)
+        elif uploaded_file and uploaded_file.filename.lower().endswith('.jpg'):
+            vlm_model = # ... NEED TO BE COMPLETED
+            image_path = os.path.join("temp", uploaded_file.filename)
+            uploaded_file.save(image_path)
+            response = # ... NEED TO BE COMPLETED
 
-#         # PDF 
-#         elif uploaded_file and uploaded_file.filename.lower().endswith('.pdf'):
-#             llm_model = # ... NEED TO BE COMPLETED
-#             pdf_path = os.path.join("temp", secure_filename(uploaded_file.filename))
-#             uploaded_file.save(pdf_path)
+        # PDF 
+        elif uploaded_file and uploaded_file.filename.lower().endswith('.pdf'):
+            llm_model = # ... NEED TO BE COMPLETED
+            pdf_path = os.path.join("temp", secure_filename(uploaded_file.filename))
+            uploaded_file.save(pdf_path)
 
-#             try:
-#                 reader = PdfReader(pdf_path)
-#                 extracted_text = ""
-#                 for page in reader.pages:
-#                     extracted_text += page.extract_text() or ""
+            try:
+                reader = PdfReader(pdf_path)
+                extracted_text = ""
+                for page in reader.pages:
+                    extracted_text += page.extract_text() or ""
 
-#                 if extracted_text.strip():
-#                     # Send the extracted text to your model
-#                     if not user_prompt:
-#                         user_prompt = "Describe this document: "
-#                     user_prompt += "\n{}".format(extracted_text)
-#                     response = # ... NEED TO BE COMPLETED
-#                 else:
-#                     response = "No readable text found in the PDF."
+                if extracted_text.strip():
+                    # Send the extracted text to your model
+                    if not user_prompt:
+                        user_prompt = "Describe this document: "
+                    user_prompt += "\n{}".format(extracted_text)
+                    response = # ... NEED TO BE COMPLETED
+                else:
+                    response = "No readable text found in the PDF."
 
-#             except Exception as e:
-#                 response = f"Error reading PDF: {str(e)}"
+            except Exception as e:
+                response = f"Error reading PDF: {str(e)}"
 
-#         # Website (URL)
-#         elif url and not uploaded_file:
-#             llm_model = # ... NEED TO BE COMPLETED
-#             extracted_text = extract_text_from_url(url)
+        # Website (URL)
+        elif url and not uploaded_file:
+            llm_model = # ... NEED TO BE COMPLETED
+            extracted_text = extract_text_from_url(url)
             
-#             # Send the extracted text to your model
-#             if extracted_text:
-#                 if not user_prompt:
-#                     user_prompt = "Describe this document: "
-#                 user_prompt += "\n{}".format(extracted_text)
-#                 response = # ... NEED TO BE COMPLETED
-#             else:
-#                 response = "No readable text found in the URL."
+            # Send the extracted text to your model
+            if extracted_text:
+                if not user_prompt:
+                    user_prompt = "Describe this document: "
+                user_prompt += "\n{}".format(extracted_text)
+                response = # ... NEED TO BE COMPLETED
+            else:
+                response = "No readable text found in the URL."
             
-#             del extracted_text
+            del extracted_text
 
-#     return # ... NEED TO BE COMPLETED
+    return # ... NEED TO BE COMPLETED
 
 
 if __name__ == '__main__':
