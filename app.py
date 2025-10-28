@@ -28,7 +28,7 @@ class VisaRequest:
 
 @app.route('/')
 def home():
-    return render_template("index.html") # ... NEED TO BE COMPLETED
+    return ... # ... NEED TO BE COMPLETED
 
 @app.route('/request-visa', methods=['GET', 'POST'])
 def request_visa():
@@ -42,16 +42,16 @@ def request_visa():
         visa_requests.append(new_request)
         return redirect(url_for('success', name=name))
     
-    return render_template("request_form.html") # ... NEED TO BE COMPLETED
+    return ... # ... NEED TO BE COMPLETED
 
 @app.route('/success')
 def success():
     name = request.args.get('name')
-    return render_template("success.html", name=name)  # ... NEED TO BE COMPLETED
+    return ...  # ... NEED TO BE COMPLETED
 
 @app.route('/admin/requests')
 def admin_view():
-    return render_template("admin.html", request=visa_requests) # ... NEED TO BE COMPLETED
+    return ... # ... NEED TO BE COMPLETED
 
 # ===================
 # GenAI-based Chatbot
@@ -91,18 +91,15 @@ def run(user_prompt : str, model_name : str, image_path : str = None, *args, **k
         content.append({"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{base64_image}"}})
     
     payload = {
-        "model" : model_name,
-        "messages" : [{"role" : "user", "content" : content}]
         # ... NEED TO BE COMPLETED
     }
 
     # Send the POST request
-    response = requests.post(api_endpoint, headers=headers, json=payload)
-    # ... NEED TO BE COMPLETED
+    response = # ... NEED TO BE COMPLETED
 
     # Check if the request was successful and print the response
     if response.status_code == 200: # 200 = OK
-        result = response.json() # ... NEED TO BE COMPLETED
+        result = ... # ... NEED TO BE COMPLETED
     else:
         return "Error: {}\n{}".format(response.status_code, response.text)
 
@@ -168,8 +165,8 @@ def chatbot():
             
             del extracted_text
 
-    return # ... NEED TO BE COMPLETED
+    return ... # ... NEED TO BE COMPLETED
 
 
 if __name__ == '__main__':
-    app.run(debug=True) # ... NEED TO BE COMPLETED
+    ... # ... NEED TO BE COMPLETED
