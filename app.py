@@ -1,5 +1,5 @@
 # Install these libraries first:
-# !pip install flask PyPDF2
+# !pip install flask PyPDF2 beautifulsoup4 requests
 
 from flask import Flask, render_template, request, redirect, url_for
 from datetime import datetime
@@ -12,7 +12,7 @@ import requests
 
 # Credentials
 app = Flask(__name__)
-api_key = "sk-zh99f8Iy5xW2DFzxlkShQg" # will be expired today at 11:59pm.
+api_key = "sk-q-ZPvNkiIgz8GzgogWapiA" # will be expired today at 11:59pm.
 api_endpoint = "https://dekallm.cloudeka.ai/v1/chat/completions"
 
 # Simple in-memory database
