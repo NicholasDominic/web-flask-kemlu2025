@@ -8,7 +8,7 @@ import base64
 import requests
 
 app = Flask(__name__)
-api_key = "sk-2mUc_hjicmZro-wudaVKuQ" # will be expired today at 11:59pm.
+api_key = "sk-q-ZPvNkiIgz8GzgogWapiA" # will be expired today at 11:59pm.
 api_endpoint = "https://dekallm.cloudeka.ai/v1/chat/completions"
 
 # Simple in-memory database
